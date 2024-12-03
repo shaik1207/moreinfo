@@ -1,0 +1,653 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>more info</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+        integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <style>
+            @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap");
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: "Roboto", sans-serif;
+            background-color: #f1eee9;
+        }
+        :root {
+            --primary-color: #f1eee9;
+            --secondary-color: orange;
+            --tertiary-color: #f9d678;
+            --text-dark: #13313c;
+            --text-light: #475569;
+            --white: #ffffff;
+            --max-width: 1200px;
+            --header-font: "Rubik", sans-serif;
+          }
+
+        .slider {
+            width: 100%;
+            height: 100vh;
+        }
+
+        .slider .controls {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 100px;
+            height: 100px;
+            z-index: 2;
+        }
+
+        .slider .controls>div {
+            position: absolute;
+            width: 50px;
+            height: 50px;
+            text-align: center;
+            line-height: 50px;
+            font-size: 2rem;
+            cursor: pointer;
+            transition: all 0.2s ease-in-out;
+        }
+
+        .slider .controls>.up:active {
+            transform: translateY(-10px);
+        }
+
+        .slider .controls>.down:active {
+            transform: translateY(10px);
+        }
+
+        .slider .controls>.up {
+            top: 0px;
+            right: 0px;
+            background: #fff;
+            color: #111;
+            border-radius: 0 5px 5px 0;
+        }
+
+        .slider .controls>.down {
+            bottom: 0px;
+            left: 0px;
+            background:orange;
+            color: #fff;
+            border-radius: 5px 0 0 5px;
+        }
+
+        .slider .wrapper {
+            width: 100%;
+            height: 100%;
+            display: flex;
+        }
+
+        .slider .wrapper .left,
+        .slider .wrapper .right {
+            width: 50%;
+            overflow: hidden;
+        }
+
+        .slider .wrapper .left>div,
+        .slider .wrapper .right>div {
+            width: 100%;
+            height: 100%;
+            transition: all 0.5s ease-in-out;
+        }
+
+        .slider .wrapper .left>div {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 0px 90px 0px 40px;
+        }
+
+        .slider .wrapper .left>div h2 {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 25px;
+            background:orange;
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .slider .wrapper .left>div p {
+            font-size: 1.125rem;
+            font-weight: 300;
+            line-height: 25px;
+            color: #555;
+            text-align: justify;
+        }
+
+        .slider .wrapper .right>div img {
+            width: 100%;
+            height: 100%;
+            object-fit: obtain;
+        }
+
+        .slider .wrapper .right div:nth-child(1) {
+            margin-top: -400vh;
+        }
+        #video{
+            margin-top:400px ;
+            margin-left:150px ;
+        }
+     
+        .main-section {
+            position: relative;
+            z-index: 3;
+            padding-top: 50px;
+            padding-bottom: 50px;
+        }
+
+        .main-container {
+            max-width: 1080px;
+            margin-left: auto;
+            margin-right: auto;
+            padding-left: 20px;
+            padding-right: 20px;
+        }
+
+        .main-section-header {
+            margin-bottom: 50px;
+            text-align: center;
+        }
+
+        .main-section-header h2 {
+            color: #FFF;
+            font-weight: bold;
+            font-size: 3em;
+            margin-bottom: 20px;
+        }
+
+        .main-section-header p {
+            color: #FFF;
+        }
+
+        .main-row {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .contact-info-section {
+            width: 50%;
+        }
+
+        .contact-info-item {
+            display: flex;
+            margin-bottom: 30px;
+        }
+
+        .contact-info-icon {
+            height: 70px;
+            width: 70px;
+            background-color: #fff;
+            text-align: center;
+            border-radius: 50%;
+        }
+
+        .contact-info-icon i {
+            font-size: 30px;
+            line-height: 70px;
+        }
+
+        .contact-info-content {
+            margin-left: 20px;
+        }
+
+        .contact-info-content h4 {
+            color: orange;
+            font-size: 1.4em;
+            margin-bottom: 5px;
+        }
+
+        .contact-info-content p {
+            color: #f1eee9;
+            font-size: 1em;
+        }
+
+        .contact-form-section {
+            background-color: #f1eee9;
+            padding: 40px;
+            width: 45%;
+            padding-bottom: 20px;
+            padding-top: 20px;
+        }
+
+        .contact-form-section h2 {
+            font-weight: bold;
+            font-size: 2em;
+            margin-bottom: 10px;
+            color: #333;
+        }
+
+        .input-container {
+            position: relative;
+            width: 100%;
+            margin-top: 10px;
+        }
+
+        .input-container input,
+        .input-container textarea {
+            width: 100%;
+            padding: 5px 0;
+            font-size: 16px;
+            margin: 10px 0;
+            border: none;
+            border-bottom: 2px solid #333;
+            outline: none;
+            resize: none;
+            background-color: #f1eee9;
+        }
+
+        .input-container span {
+            position: absolute;
+            left: 0;
+            padding: 5px 0;
+            font-size: 16px;
+            margin: 10px 0;
+            pointer-events: none;
+            transition: 0.5s;
+            color: #666;
+            
+        }
+
+        .input-container input:focus~span,
+        .input-container textarea:focus~span {
+            color: #e91e63;
+            background-color: #f1eee9;
+            font-size: 12px;
+            transform: translateY(-20px);
+        }
+
+        .input-container input[type="submit"] {
+            width: 100%;
+            background: orange;
+            color: #f1eee9;
+            border: none;
+            cursor: pointer;
+            padding: 10px;
+            font-size: 18px;
+            border: 1px solid orange;
+            transition: 0.5s;
+        }
+
+        .input-container input[type="submit"]:hover {
+            background: #f1eee9;
+            color: orange;
+        }
+
+        @media (max-width: 991px) {
+            .main-section {
+                padding-top: 50px;
+                padding-bottom: 50px;
+            }
+
+            .main-row {
+                flex-direction: column;
+            }
+
+            .contact-info-section {
+                margin-bottom: 40px;
+                width: 100%;
+            }
+
+            .contact-form-section {
+                width: 100%;
+            }
+        }
+        #rateUsButton {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        
+        .hidden {
+            display: none;
+        }
+        
+        #ratingCard {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 500px;
+            height: 20%;
+            padding: 20px;
+            background-color: white;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            border-radius: 8px;
+            z-index: 1000;
+        }
+        
+        .card-content {
+            text-align: center;
+        }
+        
+        .close-button {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            font-size: 20px;
+            cursor: pointer;
+        }
+        
+        .stars {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 20px;
+        }
+        
+        .star {
+            font-size: 30px;
+            cursor: pointer;
+            transition: color 0.3s;
+            color: #a0a4e1;
+            height: 50px;
+            width: 50px;
+        }
+        
+        .star:hover,
+        .star.active {
+            color: gold;
+        }
+        #rateUsButton{
+            width: 100%;
+            background: orange;
+            color: #f1eee9;
+            border: none;
+            cursor: pointer;
+            padding: 10px;
+            font-size: 18px;
+            border: 1px solid orange;
+            transition: 0.5s;
+        }
+        #rateUsButton:hover{
+            background: #f1eee9;
+            color:orange ;
+        }
+        #drop{
+            padding: 0.75rem 2rem;
+            outline: none;
+            border: none;
+            font-size: 1rem;
+            font-weight: 600;
+            white-space: nowrap;
+            color: var(--text-dark);
+            background-color: var(--tertiary-color);
+            border-radius: 5rem;
+            box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.1);
+            transition: 0.3s;
+            cursor: pointer;
+            
+             
+          }
+          #drop:hover{
+            color: whitesmoke;
+            background-color: orange;
+          }
+        </style>
+</head>
+
+<body>
+    <div class="slider">
+        <div class="controls">
+            <div class="up">
+                <i class="fa fa-chevron-up"></i>
+            </div>
+            <div class="down">
+                <i class="fa fa-chevron-down"></i>
+            </div>
+        </div>
+
+        <div class="wrapper">
+            <div class="left">
+                <div>
+                    <span>
+                        <a href="/Home"><button id="drop"><i class="fa-solid fa-house"></i>Home</button></a> 
+                        <a href="/about"><button id="drop"><i class="fa-solid fa-address-card"></i>About</button></a> 
+                        <a href="/team"><button id="drop"><i class="fa-solid fa-people-group"></i>Our Team</button></a> 
+                    </span>
+    
+
+                    <h2>Affiliate marketing </h2>
+                    <h3>Introduction to Affiliate marketing</h3>
+                    <p>
+                       
+
+Affiliate marketing is a popular and effective online marketing strategy where businesses collaborate with individuals or other businesses (affiliates) to promote their products or services. Affiliates earn a commission for each sale, lead, or specific action generated through their marketing efforts. This performance-based model benefits both the business and the affiliate, as it incentivizes the affiliate to drive quality traffic and conversions.
+
+How Does Affiliate Marketing Work?
+The affiliate marketing process typically involves four key players:
+
+Merchant (Advertiser/Business): The company that wants to sell a product or service.
+Affiliate (Publisher): The individual or business promoting the merchant’s product in exchange for a commission.
+Consumer: The end-user who purchases the product or takes the desired action through the affiliate’s marketing efforts.
+Affiliate Network (optional): An intermediary that connects merchants with affiliates and manages the tracking and payment of commissions.
+                    </p>
+                </div>
+
+                <div>
+                    <h2>How It Works ?</h2>
+                    <p>
+                        <h3>1.</h3>Merchant and Affiliate Partnership: A merchant creates an affiliate program and offers a commission to affiliates who promote their products. Affiliates sign up for the program and receive a unique affiliate link to track their referrals.<br>
+                        <h3>2.</h3>Promotion by the Affiliate: The affiliate promotes the merchant’s products using various online marketing channels such as websites, blogs, social media, email marketing, and more. They include their unique affiliate link in these promotions.<br>
+                        <h3>3.</h3>Customer Clicks and Purchases: When a consumer clicks on the affiliate’s link and makes a purchase or completes a desired action (e.g., signing up for a newsletter), the affiliate link tracks this activity<br>
+                        <h3>4.</h3></h4>Affiliate Earns a Commission: The merchant verifies the sale or action, and the affiliate earns a commission based on the agreed terms of the affiliate program.
+                    </p>
+                </div>
+
+                <div>
+                    <h2>Best Practices..</h2>
+                    <p>
+                        <h3>1.</h3>Choose the Right Products: Promote products or services that align with your audience’s interests and needs.<br>
+                        <h3>2.</h3>Build Trust: Provide honest and valuable content that helps your audience make informed decisions.<br>
+                        <h3>3.</h3>Diversify Traffic Sources: Utilize multiple marketing channels to reach a broader audience.
+                        <h3>4.</h3>Monitor and Optimize: Track your performance and optimize your strategies to improve conversion rates.
+                        <h3>5.</h3>Stay Compliant: Follow the rules and guidelines set by affiliate programs and ensure transparency with your audience.
+
+                    </p>
+                </div>
+
+                <div>
+                    <h2><span style="color: greenyellow;">AI</span> Tools for Affiliate marketing </h2>
+                    <p>
+                        Leveraging AI tools can significantly enhance your affiliate marketing efforts by optimizing various aspects of your campaigns, from content creation to performance analysis. Here are some AI tools that can help with different facets of affiliate marketing:<br>
+                        1. Content Creation and Optimization
+a. Jasper (formerly Jarvis)<br>
+
+Description: An AI writing assistant that helps generate high-quality content for blogs, social media posts, and more.
+Use Case: Create engaging product reviews, blog posts, and social media content to attract and retain your audience.<br>
+
+Leveraging AI tools can significantly enhance your affiliate marketing efforts by optimizing various aspects of your campaigns, from content creation to performance analysis. Here are some AI tools that can help with different facets of affiliate marketing:
+
+1. Content Creation and Optimization
+<h3>a.Jasper (formerly Jarvis)</h3> <br>
+
+Description: An AI writing assistant that helps generate high-quality content for blogs, social media posts, and more.
+Use Case: Create engaging product reviews, blog posts, and social media content to attract and retain your audience.<br>
+<h3>b. Grammarly</h3>
+
+Description: An AI-powered writing assistant that helps with grammar, spelling, and style improvements.
+Use Case: Ensure your content is polished and error-free, enhancing credibility and readability.<br>
+<h3>c. Copy.ai</h3><br>
+
+Description: AI tool that generates marketing copy for various purposes including ads, emails, and product descriptions.
+Use Case: Quickly generate compelling and persuasive copy to boost conversions.
+
+
+                    </p>
+                </div>
+
+                <div>
+                
+                    <div class="main-section">
+                        <div class="main-section-header">
+                            <div class="main-container">
+                                <h2>Contact Us</h2>
+                                <p>Have questions or need assistance? We're here to help! Reach out to us through the contact form below, and we'll get back to you as soon as possible.</p>
+                            </div>
+                        </div>
+                        <div class="main-container">
+                            <div class="main-row">
+                                <div class="contact-info-section">
+                                    <div class="contact-info-item">
+                                        <div class="contact-info-icon">
+                                            <i class="fas fa-home"></i>
+                                        </div>
+                                        <div class="contact-info-content">
+                                            <h4>Address</h4>
+                                            <p>234-house bhimavaram,<br /> india </p>
+                                        </div>
+                                    </div>
+                                    <div class="contact-info-item">
+                                        <div class="contact-info-icon">
+                                            <i class="fas fa-phone"></i>
+                                        </div>
+                                        <div class="contact-info-content">
+                                            <h4>Phone</h4>
+                                            <p>+91XXXXXX</p>
+                                        </div>
+                                    </div>
+                                    <div class="contact-info-item">
+                                        <div class="contact-info-icon">
+                                            <i class="fas fa-envelope"></i>
+                                        </div>
+                                        <div class="contact-info-content">
+                                            <h4>Email</h4>
+                                            <p>drop@gmail.com</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="contact-form-section">
+                                    <form action="" id="contact-form">
+                                        <h2>Send Message</h2>
+                                        <div class="input-container">
+                                            <input type="text" required="true" name="">
+                                            <span>Full Name</span>
+                                        </div>
+                                        <div class="input-container">
+                                            <input type="email" required="true" name="">
+                                            <span>Email</span>
+                                        </div>
+                                        <div class="input-container">
+                                            <textarea required="true" name=""></textarea>
+                                            <span>Type your Message...</span>
+                                        </div>
+                                        <div class="input-container">
+                                            <input type="submit" value="Send" name="">
+                                            
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="input-container">
+                    <button  type="submit"  id="rateUsButton">Rate Us</button>
+                </div>
+
+                    <div id="ratingCard" class="hidden">
+                        <div class="card-content">
+                            <span class="close-button" id="closeButton">&times;</span>
+                            <h2>Rate Us</h2>
+                            <div class="stars">
+                                <span class="star" data-value="1">&#9733;</span>
+                                <span class="star" data-value="2">&#9733;</span>
+                                <span class="star" data-value="3">&#9733;</span>
+                                <span class="star" data-value="4">&#9733;</span>
+                                <span class="star" data-value="5">&#9733;</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="right">
+                <div>
+                    <img src="https://i.pinimg.com/564x/96/83/be/9683be95791ff3429886d65ad73e58cd.jpg" alt="" srcset="">
+                </div>
+
+                <div>
+                    <iframe  id="video"  width="560" height="315" src="https://www.youtube.com/embed/bS-U_BQelQ0?si=3XAqyFqne8gMoYbc" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                </div>
+
+                <div>
+                    <iframe id="video" width="560" height="315" src="https://www.youtube.com/embed/x0VKAZWUNZg?si=9Mtf2Artog3D86ls&amp;start=7" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                </div>
+
+                <div>
+                    <img src="https://circlewise.io/wp-content/uploads/2021/04/how-affiliate-marketing-works.jpg" alt="" srcset="">
+                </div>
+
+                <div>
+                    <img src="https://ecomfylead.com/wp-content/uploads/2020/08/affiliate-marketing-min-scaled.jpeg"
+                        alt="london" />
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        let slider = document.querySelector(".slider");
+        let currentSlide = 0;
+        let totalSlides = slider.querySelectorAll(".wrapper .left > div").length - 1;
+
+        slider.querySelector(".controls .up").addEventListener("click", function () {
+            if (currentSlide == 0) {
+                return;
+            }
+            currentSlide--;
+            slider.querySelector(".wrapper .left div").style.marginTop = `${currentSlide * -100
+                }vh`;
+            slider.querySelector(".wrapper .right div").style.marginTop = `${(totalSlides - currentSlide) * -100
+                }vh`;
+        });
+
+        slider.querySelector(".controls .down").addEventListener("click", function () {
+            if (currentSlide == totalSlides) {
+                return;
+            }
+            currentSlide++;
+            slider.querySelector(".wrapper .left div").style.marginTop = `${currentSlide * -100
+                }vh`;
+            slider.querySelector(".wrapper .right div").style.marginTop = `${(totalSlides - currentSlide) * -100
+                }vh`;
+        });
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const rateUsButton = document.getElementById('rateUsButton');
+            const ratingCard = document.getElementById('ratingCard');
+            const closeButton = document.getElementById('closeButton');
+            const stars = document.querySelectorAll('.star');
+        
+            rateUsButton.addEventListener('click', () => {
+                ratingCard.classList.remove('hidden');
+            });
+        
+            closeButton.addEventListener('click', () => {
+                ratingCard.classList.add('hidden');
+            });
+        
+            stars.forEach(star => {
+                star.addEventListener('click', () => {
+                    stars.forEach(s => s.classList.remove('active'));
+                    star.classList.add('active');
+                    const rating = star.getAttribute('data-value');
+                    alert(`You rated us ${rating} stars!`);
+                    ratingCard.classList.add('hidden');
+                });
+            });
+        });
+    </script>
+</body>
+</html>

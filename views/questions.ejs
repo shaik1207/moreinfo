@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>moreinfo</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #FBAB7E;
+            background-image: linear-gradient(62deg, #FBAB7E 0%, #F7CE68 100%);
+        }
+        
+        .container {
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            width: 70%;
+            max-width: 600px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+        }
+        
+        #progress-bar {
+            height: 10px;
+            background-color: orange;
+            width: 0;
+            transition: width 0.5s;
+            margin-bottom: 20px;
+            border-radius: 5px;
+            width: 100%;
+        }
+        
+        #quiz-container {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        #question {
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        
+        #answers {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            width: 100%;
+        }
+        
+        label {
+            display: flex;
+            align-items: center;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            padding: 10px;
+            margin: 5px;
+            width: calc(45% - 10px);
+            box-sizing: border-box;
+            cursor: pointer;
+        }
+        
+        input[type="radio"] {
+            margin-right: 10px;
+        }
+        
+        button {
+            background-color: orange;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            border-radius: 5px;
+            font-size: 16px;
+            margin: 5px;
+        }
+        
+        button:hover {
+            background-color: #cd5409;
+        }
+        
+        .button-group {
+            display: flex;
+            margin-left: 140%;
+            width: 100%;
+            margin-top: 20px;
+        }
+        
+        #skip-button {
+            background-color: orange;
+            width: 90%;
+            margin-top: 20px;
+        }
+
+        #store {
+            width: 70%;
+            padding: 15px;
+            background-color: orange;
+            color: white;
+            font-size: 18px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        #store:hover {
+            background-color: #cd5409;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div id="progress-bar"></div>
+        <div id="quiz-container">
+            <h2 id="question"></h2>
+            <div id="answers">
+                <label>
+                    <input type="radio" name="answer" value="0">
+                    <span id="answer0"></span>
+                </label>
+                <label>
+                    <input type="radio" name="answer" value="1">
+                    <span id="answer1"></span>
+                </label>
+                <label>
+                    <input type="radio" name="answer" value="2">
+                    <span id="answer2"></span>
+                </label>
+                <label>
+                    <input type="radio" name="answer" value="3">
+                    <span id="answer3"></span>
+                </label>
+            </div>
+            <div class="button-group">
+                <button id="back-button">Back</button>
+                <button id="next-button">Next</button>
+            </div>
+            <a href="/dashbord"><button id="skip-button">Skip</button></a>
+        </div>
+    </div>
+    <script>
+        const quizData = [
+            {
+                question: "Let’s get started. Which of these best describes you?",
+                answers: ["I'm just starting","i have already account"],
+            },
+            {
+                question: "Who painted the Mona Lisa?",
+                answers: ["Vincent Van Gogh", "Leonardo da Vinci", "Pablo Picasso", "Claude Monet"],
+            },
+            {
+                question: "What is the largest planet in our solar system?",
+                answers: ["Earth", "Mars", "Jupiter", "Saturn"],
+            },
+            {
+                question: "What is the boiling point of water?",
+                answers: ["90°C", "100°C", "110°C", "120°C"],
+            }
+        ];
+
+        let currentQuestion = 0;
+
+        const questionEl = document.getElementById('question');
+        const answerEls = document.querySelectorAll('input[name="answer"]');
+        const answerTextEls = document.querySelectorAll('#answers span');
+        const nextButton = document.getElementById('next-button');
+        const backButton = document.getElementById('back-button');
+        const skipButton = document.getElementById('skip-button');
+        const progressBar = document.getElementById('progress-bar');
+        const quizContainer = document.getElementById('quiz-container');
+
+        function loadQuiz() {
+            deselectAnswers();
+            const currentQuizData = quizData[currentQuestion];
+            questionEl.innerText = currentQuizData.question;
+            answerTextEls.forEach((el, index) => {
+                el.innerText = currentQuizData.answers[index] || '';
+                if (currentQuizData.answers[index] !== undefined) {
+                    el.parentElement.style.display = 'flex';
+                } else {
+                    el.parentElement.style.display = 'none';
+                }
+            });
+            updateProgressBar();
+        }
+
+        function deselectAnswers() {
+            answerEls.forEach(answerEl => answerEl.checked = false);
+        }
+
+        function getSelected() {
+            let answer;
+            answerEls.forEach(answerEl => {
+                if (answerEl.checked) {
+                    answer = answerEl.value;
+                }
+            });
+            return answer;
+        }
+
+        function updateProgressBar() {
+            progressBar.style.width = ((currentQuestion + 1) / quizData.length) * 100 + '%';
+        }
+
+        nextButton.addEventListener('click', () => {
+            const answer = getSelected();
+            if (answer !== undefined) {
+                currentQuestion++;
+                if (currentQuestion < quizData.length) {
+                    loadQuiz();
+                } else {
+                    progressBar.style.width = '100%';
+                    quizContainer.innerHTML = `<h2>MAKE YOUR STORE</h2><a href="/dashbord"><button id="store">store</button></a>`;
+                    nextButton.style.display = 'none';
+                    backButton.style.display = 'none';
+                    
+                }
+            }
+        });
+
+        backButton.addEventListener('click', () => {
+            if (currentQuestion > 0) {
+                currentQuestion--;
+                loadQuiz();
+            }
+        });
+
+      
+        loadQuiz();
+    </script>
+</body>
+</html>

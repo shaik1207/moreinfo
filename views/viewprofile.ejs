@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile Settings</title>
+    <style>
+        /* styles.css */
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
+        }
+
+        .container {
+            display: flex;
+            background: white;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .profile-image-section {
+            padding: 20px;
+            text-align: center;
+            border-right: 1px solid #ddd;
+        }
+
+        .profile-image-section img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+
+        .profile-image-section h2,
+        .profile-image-section p {
+            margin: 10px 0;
+        }
+
+        #update-profile-image-btn {
+            margin-top: 10px;
+            padding: 10px 20px;
+            cursor: pointer;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        .profile-settings-section {
+            padding: 20px;
+            flex: 1;
+        }
+
+        .profile-settings-section h2 {
+            margin-bottom: 20px;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .form-group input,
+        .form-group select {
+            width: calc(100% - 30px);
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        #password {
+            width: calc(100% - 60px);
+        }
+
+        .toggle-password {
+            cursor: pointer;
+            margin-left: 10px;
+        }
+
+        button[type="submit"] {
+            padding: 10px 20px;
+            background: orange;
+            border: none;
+            color: white;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="profile-image-section">
+            <img src="profile-pic.jpg" alt="Profile Picture" id="profile-pic">
+            <h2 id="profile-name">more info</h2>
+            <p id="profile-email">moreinfo@gmail.com</p>
+            <button id="update-profile-image-btn">Update Profile Image</button>
+            <input type="file" id="profile-pic-input" accept="image/*" class="hidden">
+        </div>
+        <div class="profile-settings-section">
+            <h2>Profile Settings</h2>
+            <form id="profile-settings-form">
+                <div class="form-group">
+                    <label for="first-name">First Name</label>
+                    <input type="text" id="first-name" name="first-name" value="more">
+                </div>
+                <div class="form-group">
+                    <label for="last-name">Last Name</label>
+                    <input type="text" id="last-name" name="last-name" value="info">
+                </div>
+                <div class="form-group">
+                    <label for="mobile">Mobile</label>
+                    <input type="text" id="mobile" name="mobile" value="0767309224">
+                </div>
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" name="password" value="moreinfo">
+                    <span class="toggle-password" id="toggle-password">👁️</span>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" value="moreinfo@gmail.com">
+                </div>
+                <button type="submit">Save</button>
+            </form>
+        </div>
+    </div>
+    <script>
+        // script.js
+        document.addEventListener('DOMContentLoaded', function() {
+            const profilePicInput = document.getElementById('profile-pic-input');
+            const profilePic = document.getElementById('profile-pic');
+            const updateProfileImageBtn = document.getElementById('update-profile-image-btn');
+            const togglePassword = document.getElementById('toggle-password');
+            const passwordInput = document.getElementById('password');
+            const profileSettingsForm = document.getElementById('profile-settings-form');
+
+            updateProfileImageBtn.addEventListener('click', () => {
+                profilePicInput.click();
+            });
+
+            profilePicInput.addEventListener('change', (event) => {
+                const file = event.target.files[0];
+                if (file) {
+                    const reader = new FileReader();
+                    reader.onload = function(e) {
+                        profilePic.src = e.target.result;
+                    };
+                    reader.readAsDataURL(file);
+                }
+            });
+
+            togglePassword.addEventListener('click', () => {
+                if (passwordInput.type === 'password') {
+                    passwordInput.type = 'text';
+                } else {
+                    passwordInput.type = 'password';
+                }
+            });
+
+            profileSettingsForm.addEventListener('submit', async (event) => {
+                event.preventDefault();
+
+                const formData = new FormData(profileSettingsForm);
+                const data = {
+                    firstName: formData.get('first-name'),
+                    lastName: formData.get('last-name'),
+                    mobile: formData.get('mobile'),
+                    password: formData.get('password'),
+                    email: formData.get('email')
+                };
+
+                try {
+                    const response = await fetch('https://example.com/api/profile', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify(data)
+                    });
+
+                    if (response.ok) {
+                        alert('Profile updated successfully!');
+                    } else {
+                        alert('Failed to update profile. Please try again.');
+                    }
+                } catch (error) {
+                    console.error('Error:', error);
+                    alert('Failed to update profile. Please try again.');
+                }
+            });
+        });
+    </script>
+</body>
+</html>

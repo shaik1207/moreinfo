@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>more info</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color:#f1eee9;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        
+        .team-section {
+            text-align: center;
+            padding: 20px;
+            background: white;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            border-radius: 10px;
+        }
+        
+        .team-section h1 {
+            font-size: 2em;
+            margin-bottom: 20px;
+            color: orange;
+        }
+        
+        .team-container {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+        .team-container h2{
+            color: orange;
+        }
+        .team-member {
+            background: #fff;
+            padding: 15px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            width: 200px;
+            transition: transform 0.3s ease;
+        }
+        
+        .team-member:hover {
+            transform: scale(1.05);
+        }
+        
+        .team-member img {
+            width: 100%;
+            border-radius: 50%;
+            margin-bottom: 15px;
+        }
+        
+        .team-member h2 {
+            font-size: 1.2em;
+            margin-bottom: 10px;
+        }
+        
+        .team-member p {
+            font-size: 1em;
+            color: #666;
+        }
+        
+    </style>
+</head>
+<body>
+    <section class="team-section">
+        <h1>Meet Our Team</h1>
+        <div class="team-container">
+            <div class="team-member">
+                <img src="https://cdn-icons-png.flaticon.com/512/4086/4086679.png" alt="Team Member 1">
+                <h2>Y.SRI BHARGAV</h2>
+                <p>Project LEAD</p>
+            </div>
+            <div class="team-member">
+                <img src="https://cdn4.iconfinder.com/data/icons/business-conceptual-part1-1/513/business-woman-1024.png" alt="Team Member 2">
+                <h2>P.DEEPTHI SRI</h2>
+                <p>Designer</p>
+            </div>
+            <div class="team-member">
+                <img src="https://png.pngtree.com/png-vector/20190411/ourlarge/pngtree-business-male-icon-vector-png-image_916468.jpg" alt="Team Member 3">
+                <h2>SHAIK SAMEER</h2>
+                <p>Froentend Developer</p>
+            </div>
+            <div class="team-member">
+                <img src="https://static.vecteezy.com/system/resources/previews/000/422/676/original/female-avatar-icon-vector-illustration.jpg" alt="Team Member 3">
+                <h2>ZAKIYA</h2>
+                <p>Backend developer</p>
+            </div>
+            <div class="team-member">
+                <img src="https://www.pinclipart.com/picdir/big/535-5352011_woman-icon-circle-png-clipart.png" alt="Team Member 3">
+                <h2>CHANDINI</h2>
+                <p>Backend developer</p>
+            </div>
+            
+        </div>
+    </section>
+    <script>
+    
+document.addEventListener('DOMContentLoaded', () => {
+    const teamMembers = document.querySelectorAll('.team-member');
+    
+    teamMembers.forEach(member => {
+        member.addEventListener('click', () => {
+            alert(`You clicked on ${member.querySelector('h2').textContent}`);
+        });
+    });
+});
+
+    </script>
+</body>
+</html>

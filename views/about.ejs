@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>more info</title>
+    <style>
+        html {
+            font-size: 16px;
+        }
+
+        body {
+            background-color:#f1eee9;;
+            font-family: 'Courier New', Courier, monospace;
+        }
+
+        section {
+            padding: 80px;
+        }
+
+        .hero {
+            display: flex;
+            flex-direction: row;
+            width: 65%;
+            margin: auto;
+        }
+
+        div {
+            margin-right: 40px;
+            padding-top: 0;
+        }
+
+        h1 {
+            color: orange;
+            font-size: 3em;
+            padding-bottom: 25px;
+        }
+
+        p {
+            color: black;
+            font-size: 1.2em;
+            margin-bottom: 70px;
+        }
+
+        a {
+            text-decoration: none;
+            color: white;
+        }
+
+        a:hover {
+            text-decoration: none;
+        }
+
+        .cta {
+            color: white;
+            background: #f9d678;
+            padding: 20px 30px;
+            font-size: 1.1em;
+            border-radius: 50px;
+        }
+
+        .cta:hover {
+            text-decoration: none;
+            background: orange;
+        }
+
+        @media screen and (max-width: 996px) {
+            .hero {
+                flex-direction: column;
+                text-align: center;
+                justify-content: center;
+                padding: 30px;
+                padding: 10px;
+                width: 85%;
+            }
+
+            .hero img {
+                order: 1;
+                margin-bottom: 40px;
+            }
+
+            .hero div {
+                order: 2;
+                height: auto;
+                margin-bottom: 15px;
+                margin-right: 0;
+            }
+
+            .home p {
+                padding: 0 50px 0 50px;
+                margin-bottom: 50px;
+            }
+        }
+
+        @media screen and (max-width: 470px) {
+            .hero h1 {
+                font-size: 2em;
+            }
+
+            .hero p {
+                font-size: 1.2em;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <section class="hero">
+        <div>
+            <h1>Over view about Dropshipping and AffiliateMarketing</h1>
+            <p>Dropshipping is an e-commerce business model where the retailer does not keep goods in stock. Instead, when a customer makes a purchase, the retailer purchases the item from a third party (usually a wholesaler or manufacturer) who then ships the product directly to the customer.<br>
+                How Dropshipping Works:<br>
+               1. Setting Up an Online Store: The retailer sets up an online store and lists products for sale.<br>
+                2.Customer Places an Order: A customer orders a product from the retailer's online store.<br>
+                3.Forwarding the Order: The retailer forwards the order details to the dropshipping supplier.<br>
+                4.Supplier Ships the Product: The supplier ships the product directly to the customer.<br>
+                5.Profit Margin: The retailer earns a profit margin on the difference between the price they charge the customer and the price they pay the supplier.</p>
+            <a class="cta" href="/Home">VIEW MORE</a>
+        </div>
+        <img src="home-banner-image.png" alt="">
+    </section>
+</body>
+</html>

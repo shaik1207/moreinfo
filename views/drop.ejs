@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>more info</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+        integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <style>
+            @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap");
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        :root {
+            --primary-color: #f1eee9;
+            --secondary-color: orange;
+            --tertiary-color: #f9d678;
+            --text-dark: #13313c;
+            --text-light: #475569;
+            --white: #ffffff;
+            --max-width: 1200px;
+            --header-font: "Rubik", sans-serif;
+          }
+
+        body {
+            font-family: "Roboto", sans-serif;
+            background-color: #f1eee9;
+        }
+
+        .slider {
+            width: 100%;
+            height: 100vh;
+        }
+
+        .slider .controls {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 100px;
+            height: 100px;
+            z-index: 2;
+        }
+
+        .slider .controls>div {
+            position: absolute;
+            width: 50px;
+            height: 50px;
+            text-align: center;
+            line-height: 50px;
+            font-size: 2rem;
+            cursor: pointer;
+            transition: all 0.2s ease-in-out;
+        }
+
+        .slider .controls>.up:active {
+            transform: translateY(-10px);
+        }
+
+        .slider .controls>.down:active {
+            transform: translateY(10px);
+        }
+
+        .slider .controls>.up {
+            top: 0px;
+            right: 0px;
+            background: #fff;
+            color: #111;
+            border-radius: 0 5px 5px 0;
+        }
+
+        .slider .controls>.down {
+            bottom: 0px;
+            left: 0px;
+            background:orange;
+            color: #fff;
+            border-radius: 5px 0 0 5px;
+        }
+
+        .slider .wrapper {
+            width: 100%;
+            height: 100%;
+            display: flex;
+        }
+
+        .slider .wrapper .left,
+        .slider .wrapper .right {
+            width: 50%;
+            overflow: hidden;
+        }
+
+        .slider .wrapper .left>div,
+        .slider .wrapper .right>div {
+            width: 100%;
+            height: 100%;
+            transition: all 0.5s ease-in-out;
+        }
+
+        .slider .wrapper .left>div {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 0px 90px 0px 40px;
+        }
+
+        .slider .wrapper .left>div h2 {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 25px;
+            background:orange;
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .slider .wrapper .left>div p {
+            font-size: 1.125rem;
+            font-weight: 300;
+            line-height: 25px;
+            color: #555;
+            text-align: justify;
+        }
+
+        .slider .wrapper .right>div img {
+            width: 100%;
+            height: 100%;
+            object-fit: obtain;
+        }
+
+        .slider .wrapper .right div:nth-child(1) {
+            margin-top: -400vh;
+        }
+        #video{
+            margin-top:250px ;
+            margin-left:150px ;
+        }
+        
+        #drop{
+            padding: 0.75rem 2rem;
+            outline: none;
+            border: none;
+            font-size: 1rem;
+            font-weight: 600;
+            white-space: nowrap;
+            color: var(--text-dark);
+            background-color: var(--tertiary-color);
+            border-radius: 5rem;
+            box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.1);
+            transition: 0.3s;
+            cursor: pointer;
+            
+             
+          }
+          #drop:hover{
+            color: whitesmoke;
+            background-color: orange;
+          }
+        </style>
+</head>
+
+<body>
+    <div class="slider">
+        <div class="controls">
+            <div class="up">
+                <i class="fa fa-chevron-up"></i>
+            </div>
+            <div class="down">
+                <i class="fa fa-chevron-down"></i>
+            </div>
+        </div>
+
+        <div class="wrapper">
+            <div class="left">
+                <div >
+                    <span>
+                    <a href="/Home"><button id="drop"><i class="fa-solid fa-house"></i>Home</button></a> 
+                    <a href="/about"><button id="drop"><i class="fa-solid fa-address-card"></i>About</button></a> 
+                    <a href="/team"><button id="drop"><i class="fa-solid fa-people-group"></i>Our Team</button></a> 
+                </span>
+
+                    <h2>Dropshipping </h2>
+                    <p>
+                        Dropshipping is an increasingly popular retail fulfillment method for ecommerce businesses. Read on to learn how dropshipping works and the benefits of this business model for online retailers.
+                        If you're interested in venturing into ecommerce but aren't quite ready to handle the logistics of designing, manufacturing, warehousing, packaging, and shipping products that come with being an ecommerce wholesaler, dropshipping could be an excellent starting point for your entrepreneurial journey. With a third-party managing the logistics, you can concentrate on building your brand and marketing your products
+                    </p>
+                </div>
+
+                <div>
+                    <h2>What is dropshipping?</h2>
+                    <p>
+                        Dropshipping is an order fulfillment method where a business doesn't keep the products it sells in stock. When an order is received, the seller sends it to another company who ships the product straight to the customer. The seller is a middleman between the customer and the company with the product.
+
+                        Click here to start selling online now with Shopify
+                        This streamlined approach to selling products online and its order fulfillment means you can start a business without having to lease warehouse space, juggle supply chains, or manage inventory.
+                        
+                        Ahead, you'll learn everything there is to know about dropshipping, from how it works to benefits, and how to start your own dropshipping business today.
+                    </p>
+                </div>
+
+                <div>
+                    <h2>How does dropshipping work?</h2>
+                    <p>
+                        The dropshipping process is essentially a relationship between a customer-facing store and a supplier.
+
+                        There are two common approaches to adopting a dropshipping business model. The first is to seek out one or more wholesale suppliers located in North America (or anywhere else in the world) on your own using a supplier database. Examples of popular online supplier databases include AliExpress, SaleHoo, and Worldwide Brands.
+                        
+                        If you’re not interested in finding suppliers for all of the products you plan to sell, you can use an app that connects you and your store to thousands of suppliers. For this, use DSers, a Shopify app that helps independent business owners find products to sell.
+                        
+                        With DSers, you can browse AliExpress and import the products that pique your interest directly to DSers—which is connected to your Shopify store—with the click of a button. Once a customer buys a product, you’ll be able to fulfill their order in the DSers app.
+                        
+                        Fortunately, DSers automates most of the dropshipping process. As the store owner, all you have to do is check that the details are correct and click the order button. The product is then shipped directly from the AliExpress supplier to the customer—wherever in the world they may be.
+                    </p>
+                </div>
+
+                <div>
+                    <h2>Benefits of dropshipping</h2>
+                    <p>
+                        1. Less upfront capital required
+Probably the biggest advantage to dropshipping is that it’s possible to launch an ecommerce store without having to invest thousands of dollars in inventory. Traditionally, a brick-and-mortar or ecommerce retailer has to tie up huge amounts of capital purchasing inventory.
+
+With the dropshipping model, you don’t have to purchase a product unless you’ve already made the sale and have been paid by the customer. Without significant upfront inventory investments, it’s possible to start dropshipping and become successful with very little money.
+
+Additionally, because you’re not committed to selling through any inventory purchased upfront, like in other business models, there’s less risk involved in starting a dropshipping store.
+
+2. Easy to start
+Running an ecommerce business is much easier when you don’t have to deal with physical products. With dropshipping, you don’t have to worry about:
+
+Managing or paying for a warehouse
+Packing and shipping your orders
+Tracking inventory for accounting reasons
+Handling returns and inbound shipments
+Continually ordering products and managing stock level
+
+
+                    </p>
+                </div>
+
+                <div>
+                    <h2>Start your dropshipping business with Shopify</h2>
+                    <p>
+                        Whether you’re interested in finding a side hustle, starting a new full-time enterprise, or changing the business model behind your existing online store, dropshipping may be the answer you’re looking for.
+
+                        Getting started with an ecommerce platform like Shopify is easy:
+                        
+                        Set up your Shopify account: Go to Shopify's website and follow the instructions to set up a new account. You will need to provide some basic information about yourself and your business.
+                        Choose a theme: Shopify has a variety of themes available. Choose one that fits your brand and products.
+                        Customize your store: Add your logo, create product categories, set up your navigation, and add any necessary pages like "About Us" and "Contact".
+                        Setup DSers: Dsers is an AliExpress dropshipping tool that you can integrate with your Shopify store. Go to the Shopify App Store, find Dsers, and install it.
+                        Link your AliExpress account: You'll need to connect your AliExpress account to Dsers so you can import products.
+                        Import products: Use Dsers to find products on AliExpress that fit your niche. You can import these directly to your Shopify store.
+                        Yes, dropshipping comes with a number of built-in complexities you’ll need to address as an entrepreneur. But with careful planning and consideration, you can anticipate and resolve those issues to create a thriving, profitable dropshipping business.
+                        
+                        
+                    </p>
+                </div>
+            </div>
+            <div class="right">
+                <div>
+                    <iframe  id="video"  width="646" height="363" src="https://www.youtube.com/embed/ferhOYx1NMo" title="The OFFICIAL Shopify Tutorial - Ecommerce from Scratch" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                </div>
+
+                <div>
+                    <iframe  id="video" width="646" height="363" src="https://www.youtube.com/embed/N1QhNxb6f5Q" title="Official Guide To Dropship Successfully on Shopify" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                </div>
+
+                <div>
+                    <img src="https://tse2.mm.bing.net/th?id=OIP.0XYqpckkqQXezqHBTBfTIAAAAA&pid=Api&P=0&h=180"
+                        alt="istanbul" />
+                </div>
+
+                <div>
+                    <iframe  id="video" width="646" height="363" src="https://www.youtube.com/embed/GlKo6FlbkQw" title="What Is Dropshipping? How To Start Dropshipping on Shopify" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                </div>
+
+                <div>
+                    <img src="https://cdn.shopify.com/s/files/1/0070/7032/files/shopify_dropshipping_chapter_1.jpg?v=1590420594"
+                        alt="london" />
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        let slider = document.querySelector(".slider");
+        let currentSlide = 0;
+        let totalSlides = slider.querySelectorAll(".wrapper .left > div").length - 1;
+
+        slider.querySelector(".controls .up").addEventListener("click", function () {
+            if (currentSlide == 0) {
+                return;
+            }
+            currentSlide--;
+            slider.querySelector(".wrapper .left div").style.marginTop = `${currentSlide * -100
+                }vh`;
+            slider.querySelector(".wrapper .right div").style.marginTop = `${(totalSlides - currentSlide) * -100
+                }vh`;
+        });
+
+        slider.querySelector(".controls .down").addEventListener("click", function () {
+            if (currentSlide == totalSlides) {
+                return;
+            }
+            currentSlide++;
+            slider.querySelector(".wrapper .left div").style.marginTop = `${currentSlide * -100
+                }vh`;
+            slider.querySelector(".wrapper .right div").style.marginTop = `${(totalSlides - currentSlide) * -100
+                }vh`;
+        });
+    </script>
+</body>
+</html>

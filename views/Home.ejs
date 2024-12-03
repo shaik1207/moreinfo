@@ -1,0 +1,939 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v3.0.6/css/line.css">
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap");
+      @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+
+
+:root {
+  --primary-color: #f1eee9;
+  --secondary-color: orange;
+  --tertiary-color: #f9d678;
+  --text-dark: #13313c;
+  --text-light: #475569;
+  --white: #ffffff;
+  --max-width: 1200px;
+  --header-font: "Rubik", sans-serif;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.section__container {
+  max-width: var(--max-width);
+  margin: auto;
+  padding: 5rem 1rem;
+}
+
+img {
+  display: flex;
+  width: 100%;
+}
+
+a {
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  background-color: var(--primary-color);
+}
+
+nav {
+  position: fixed;
+  isolation: isolate;
+  width: 100%;
+  z-index: 9;
+}
+
+.nav__header {
+  padding: 1rem;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: var(--text-dark);
+}
+
+
+
+.nav__menu__btn {
+  font-size: 1.5rem;
+  color: var(--white);
+  cursor: pointer;
+}
+
+.nav__links {
+  position: absolute;
+  top: 64px;
+  left: 0;
+  width: 100%;
+  padding: 2rem;
+  list-style: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 2rem;
+  background-color: var(--text-dark);
+  transition: 0.5s;
+  z-index: -1;
+  transform: translateY(-100%);
+}
+
+.nav__links.open {
+  transform: translateY(0);
+}
+
+.nav__links a {
+  font-weight: 500;
+  color: var(--white);
+  transition: 0.3s;
+}
+
+.nav__links a:hover {
+  color: var(--secondary-color);
+}
+
+.nav__btns {
+  display: none;
+}
+
+.header__container {
+  display: grid;
+  gap: 1rem;
+  position:st;
+}
+
+.header__image img {
+  width: 100%;
+            height: 100%;
+            margin-top: -50px;
+            margin-left: -40px;
+}
+
+.header__content {
+  text-align: center;
+}
+
+.header__content h2 {
+  margin-bottom: 0.5rem;
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: var(--text-dark);
+}
+
+.header__content h1 {
+  margin-bottom: 1rem;
+  font-size: 4.25rem;
+  font-weight: 600;
+  font-family: var(--header-font);
+  line-height: 5rem;
+  color: var(--text-dark);
+}
+
+.header__content p {
+  margin-bottom: 2rem;
+  font-size: 1.1rem;
+  font-weight: 500;
+  line-height: 1.75rem;
+  color: var(--text-light);
+}
+
+.header__btns {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.header__btns img {
+  max-width: 150px;
+  border-radius: 5px;
+}
+
+@media (width > 768px) {
+  nav {
+    position: static;
+    padding-block: 2rem 0;
+    padding-inline: 1rem;
+    max-width: var(--max-width);
+    margin-inline: auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2rem;
+  }
+
+  .nav__header {
+    flex: 1;
+    padding: 0;
+    background-color: transparent;
+  }
+
+  .nav__logo a {
+    font-size: 2rem;
+    color: var(--text-dark);
+  }
+
+  .nav__logo a span {
+    padding: 6px 9px;
+    color: var(--white);
+  }
+
+  .nav__menu__btn {
+    display: none;
+  }
+
+  .nav__links {
+    position: static;
+    padding: 0;
+    flex-direction: row;
+    background-color: transparent;
+    transform: none;
+  }
+
+  .nav__links a {
+    padding-block: 5px;
+    color: var(--text-light);
+    border-bottom: 2px solid transparent;
+  }
+
+  .nav__links a:hover {
+    border-color: var(--secondary-color);
+  }
+
+  .nav__btns {
+    display: flex;
+    flex: 1;
+    gap: 30px;
+  }
+
+  .nav__btns .btn {
+    padding: 0.75rem 2rem;
+    outline: none;
+    border: none;
+    font-size: 1rem;
+    font-weight: 600;
+    white-space: nowrap;
+    color: var(--text-dark);
+    background-color: var(--tertiary-color);
+    border-radius: 5rem;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.1);
+    transition: 0.3s;
+    cursor: pointer;
+     
+  }
+
+  .nav__btns .btn:hover {
+    color: var(--white);
+    background-color: var(--secondary-color);
+  }
+
+  .header__container {
+    grid-template-columns: repeat(2, 1fr);
+    align-items: center;
+  }
+
+  .header__image {
+    grid-area: 1/2/2/3;
+    
+  }
+
+  .header__content {
+    text-align: left;
+  }
+
+  .header__btns {
+    justify-content: flex-start;
+    height: 30px;
+    
+  }
+}
+#footer svg{
+    margin-top: -170px;
+}
+
+#helpButton {
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.chatbot-container {
+  display: none;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 300px;
+  height: 400px;
+  background-color: white;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  border-radius: 10px;
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  z-index: 1000;
+}
+
+.chatbot-header {
+  background-color: #f9d678;
+  color: white;
+  padding: 10px;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.chatbot-body {
+  padding: 10px;
+  flex-grow: 1;
+  overflow-y: auto;
+}
+
+.message {
+  padding: 10px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+}
+
+.message.bot {
+  background-color: #e0e0e0;
+  align-self: flex-start;
+}
+
+.message.user {
+  
+  background-color:#f9d678;
+  color: white;
+  align-self: flex-end;
+}
+
+.chatbot-footer {
+  display: flex;
+  padding: 10px;
+  border-top: 1px solid #ccc;
+}
+
+#userInput {
+  flex-grow: 1;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin-right: 10px;
+}
+
+#sendButton {
+  padding: 10px 20px;
+  
+  background-color: #f9d678;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+#closeButton {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+}
+#drop{
+  padding: 0.75rem 2rem;
+  outline: none;
+  border: none;
+  font-size: 1rem;
+  font-weight: 600;
+  white-space: nowrap;
+  color: var(--text-dark);
+  background-color: var(--tertiary-color);
+  border-radius: 5rem;
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.1);
+  transition: 0.3s;
+  cursor: pointer;
+   
+}
+#drop:hover{
+  color: var(--white);
+  background-color: var(--secondary-color);
+}
+.profile-container {
+  position: relative;
+}
+
+#profile-pic {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.profile-menu {
+  position: absolute;
+  top: 110px;
+  right: 0;
+  display: flex;
+  flex-direction: column;
+  background: white;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+.profile-menu button {
+  padding: 10px;
+  border: none;
+  background:var(--tertiary-color);
+  cursor: pointer;
+  border-bottom: 1px solid #ddd;
+}
+
+.profile-menu button:hover {
+  background: var(--secondary-color);
+}
+
+.profile-menu button:last-child {
+  border-bottom: none;
+}
+
+.hidden {
+  display: none;
+}
+  #logoo{
+    margin-left: -75px;
+    height: 5rem;
+    width: 8rem;
+  }
+  .notification {
+    display: none;
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: green;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+}
+
+.wrapper{
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  animation: show_toast 1s ease forwards;
+}
+@keyframes show_toast {
+  0%{
+    transform: translateX(-100%);
+  }
+  40%{
+    transform: translateX(10%);
+  }
+  80%, 100%{
+    transform: translateX(20px);
+  }
+}
+.wrapper.hide{
+  animation: hide_toast 1s ease forwards;
+}
+@keyframes hide_toast {
+  0%{
+    transform: translateX(20px);
+  }
+  40%{
+    transform: translateX(10%);
+  }
+  80%, 100%{
+    opacity: 0;
+    pointer-events: none;
+    transform: translateX(-100%);
+  }
+}
+.wrapper .toast{
+  background: #fff;
+  padding: 20px 15px 20px 20px;
+  border-radius: 10px;
+  border-left: 5px solid #2ecc71;
+  box-shadow: 1px 7px 14px -5px rgba(0,0,0,0.15);
+  width: 430px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.wrapper .toast.offline{
+  border-color: #ccc;
+}
+.toast .content{
+  display: flex;
+  align-items: center;
+}
+.content .icon{
+  font-size: 25px;
+  color: #fff;
+  height: 50px;
+  width: 50px;
+  text-align: center;
+  line-height: 50px;
+  border-radius: 50%;
+  background: #2ecc71;
+}
+.toast.offline .content .icon{
+  background: #ccc;
+}
+.content .details{
+  margin-left: 15px;
+}
+.details span{
+  font-size: 20px;
+  font-weight: 500;
+}
+.details p{
+  color: #878787;
+}
+.toast .close-icon{
+  color: #878787;
+  font-size: 23px;
+  cursor: pointer;
+  height: 40px;
+  width: 40px;
+  text-align: center;
+  line-height: 40px;
+  border-radius: 50%;
+  background: #f2f2f2;
+  transition: all 0.3s ease;
+}
+.close-icon:hover{
+  background: #efefef;
+}
+
+.loader{
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: #fff;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.disppear{
+  animation: vanish 1s forwards;
+}
+@keyframes vanish {
+  100%{
+    opacity: 0;
+    visibility: hidden;
+  }
+}
+
+    </style>
+    <link rel="icon" href="https://i.ibb.co/nRKDFNv/Screenshot-2024-06-05-120657-removebg-preview.png">
+    <title>moreinfo</title>
+  </head>
+  <body>
+
+
+  
+  
+    <nav>
+      <div class="nav__header">
+        <div class="nav__logo">
+        </div>
+        <div class="nav__menu__btn" id="menu-btn">
+          <span><i class="ri-menu-line"></i></span>
+        </div>
+      </div>
+      <ul class="nav__links" id="nav-links">
+        <li>  <img src="https://i.ibb.co/nRKDFNv/Screenshot-2024-06-05-120657-removebg-preview.png"  id="logoo"> </li>
+        <li><a href="/Home"><i class="fa-solid fa-house"></i>Home</a></li>
+        <li><a href="/about"><i class="fa-solid fa-address-card"></i>About</a></li>
+        <li><a href="/team"><i class="fa-solid fa-people-group"></i>Our Team</a></li>
+       
+      
+      </ul>
+<!----------------------------------------------------------------------------------------------->
+
+<div class="wrapper">
+  <div class="toast">
+    <div class="content">
+      <div class="icon"><i class="uil uil-wifi"></i></div>
+      <div class="details">
+        <span>You're online now</span>
+        <p>Hurray! Internet is connected.</p>
+      </div>
+    </div>
+    <div class="close-icon"><i class="uil uil-times"></i></div>
+  </div>
+</div>
+
+
+<div class="loader">
+  <img src="https://i.ibb.co/nRKDFNv/Screenshot-2024-06-05-120657-removebg-preview.png" >
+</div>
+<!------------------------------------------------------------------------------------------------>
+
+
+
+
+
+      <div id="notification" class="notification">Action not allowed!</div>
+      <div id="chatbotContainer" class="chatbot-container">
+        <div class="chatbot-header">
+            <h2>Chatbot</h2>
+            <button id="closeButton">X</button>
+        </div>
+        <div class="chatbot-body" id="chatbotBody">
+            <div class="message bot">Hello! How can I help you ?</div>
+        </div>
+        <div class="chatbot-footer">
+            <input type="text" id="userInput" placeholder="Type your message...">
+            <button id="sendButton">Send</button>
+        </div>
+    </div>
+      <div class="nav__btns">
+        <a href="/signup3"><button class="btn"><i class="fa-solid fa-user-plus"></i>Sign Up</button></a> 
+        <a href="/Signin3"><button class="btn"><i class="fa-solid fa-right-to-bracket"></i>Sign in</button></a> 
+        <a href="/questions"><button class="btn"><i class="fa-solid fa-store"></i>Store</button></a>
+        <button  class="btn" id="helpButton"><i class="fa-solid fa-headset"></i>Help</button>
+
+        <div class="profile-container">
+          <img src="https://www.lensmen.ie/wp-content/uploads/2015/02/Profile-Portrait-Photographer-in-Dublin-Ireland..jpg" alt="Profile Picture" id="profile-pic">
+          <div id="profile-menu" class="profile-menu hidden">
+              <a href="/viewprofile"><button id="view-profile">View Profile</button></a>
+              <button id="logout">Logout</button>
+          </div>
+      </div>
+
+      </div>
+        
+      </div>
+    </nav>
+    <header class="section__container header__container">
+      <div class="header__image">
+       <img   id="image"   src="https://gifs.eco.br/wp-content/uploads/2022/08/gifs-de-marketing-digital-2.gif">
+      </div>
+      <div class="header__content">
+        <h2>START YOUR JOURNEY WITH</h2>
+        <h1>DROPSHIPPING AND AFFILIATE MARKETING</h1>
+        <p>
+            Dropshipping and affiliate marketing are popular e-commerce business models. Dropshipping involves selling products directly to customers without holding inventory; instead, the retailer forwards orders to a third-party supplier who ships the items directly to the customer. This minimizes overhead costs and eliminates the need for storage space.
+        </p>
+        <div class="header__btns">
+          
+            <a href="/signin"><button id="drop"><i class="fa-brands fa-dropbox"></i>Dropshipping</button></a> 
+
+          
+          <a href="signin2.html">
+            <a href="/signin2"><button id="drop"><i class="fa-solid fa-chart-simple"></i>Affiliate Marketing</button></a> 
+
+          </a>
+        </div>
+      </div>
+    </header>
+    <!----------------------------------------------------footer------------------------------------------------------------------------>
+    <footer id="footer">
+        <svg width="100%" height="100%" id="svg" viewBox="0 0 1440 590" xmlns="http://www.w3.org/2000/svg" class="transition duration-300 ease-in-out delay-150"><style>
+            .path-0{
+              animation:pathAnim-0 4s;
+              animation-timing-function: linear;
+              animation-iteration-count: infinite;
+            }
+            @keyframes pathAnim-0{
+              0%{
+                d: path("M 0,600 L 0,150 C 90.58673995190657,165.60632085194092 181.17347990381313,181.21264170388184 235,167 C 288.82652009618687,152.78735829611816 305.8928203366541,108.75575403641358 375,127 C 444.1071796633459,145.24424596358642 565.2552387495706,225.76434215046376 652,224 C 738.7447612504294,222.23565784953624 791.0862246650636,138.18687736173138 856,98 C 920.9137753349364,57.81312263826863 998.399862590175,61.48814840261079 1064,96 C 1129.600137409825,130.5118515973892 1183.3143249742357,195.8605290278255 1244,210 C 1304.6856750257643,224.1394709721745 1372.3428375128822,187.06973548608727 1440,150 L 1440,600 L 0,600 Z");
+              }
+              25%{
+                d: path("M 0,600 L 0,150 C 78.7825489522501,172.05771212641704 157.5650979045002,194.1154242528341 227,177 C 296.4349020954998,159.8845757471659 356.52215733424947,103.59601511508073 425,109 C 493.47784266575053,114.40398488491927 570.3462727585022,181.500515286843 628,216 C 685.6537272414978,250.499484713157 724.0927516317416,252.40192373754724 792,216 C 859.9072483682584,179.59807626245276 957.282720714531,104.89178976296805 1036,83 C 1114.717279285469,61.108210237031955 1174.776365510134,92.03091721058055 1239,112 C 1303.223634489866,131.96908278941945 1371.611817244933,140.9845413947097 1440,150 L 1440,600 L 0,600 Z");
+              }
+              50%{
+                d: path("M 0,600 L 0,150 C 69.79869460666438,125.71350051528684 139.59738921332877,101.42700103057368 197,116 C 254.40261078667123,130.57299896942632 299.4091377533494,184.00549639299211 373,188 C 446.5908622466506,191.99450360700789 548.7660597732738,146.55101339745792 627,155 C 705.2339402267262,163.44898660254208 759.5266231535554,225.79045001717625 819,210 C 878.4733768464446,194.20954998282375 943.1274476125043,100.28718653383714 1010,96 C 1076.8725523874957,91.71281346616286 1145.9635863964272,177.06080384747509 1218,201 C 1290.0364136035728,224.93919615252491 1365.0182068017864,187.46959807626246 1440,150 L 1440,600 L 0,600 Z");
+              }
+              75%{
+                d: path("M 0,600 L 0,150 C 50.714531088972876,172.8114050154586 101.42906217794575,195.6228100309172 177,204 C 252.57093782205425,212.3771899690828 352.99828237718987,206.3201648917898 422,200 C 491.00171762281013,193.6798351082102 528.5778083132946,187.09653040192373 593,166 C 657.4221916867054,144.90346959807627 748.6904843696323,109.2937135005153 832,95 C 915.3095156303677,80.7062864994847 990.660254208176,87.7286155960151 1053,105 C 1115.339745791824,122.2713844039849 1164.6684987976641,149.79182411542425 1227,159 C 1289.3315012023359,168.20817588457575 1364.665750601168,159.1040879422879 1440,150 L 1440,600 L 0,600 Z");
+              }
+              100%{
+                d: path("M 0,600 L 0,150 C 90.58673995190657,165.60632085194092 181.17347990381313,181.21264170388184 235,167 C 288.82652009618687,152.78735829611816 305.8928203366541,108.75575403641358 375,127 C 444.1071796633459,145.24424596358642 565.2552387495706,225.76434215046376 652,224 C 738.7447612504294,222.23565784953624 791.0862246650636,138.18687736173138 856,98 C 920.9137753349364,57.81312263826863 998.399862590175,61.48814840261079 1064,96 C 1129.600137409825,130.5118515973892 1183.3143249742357,195.8605290278255 1244,210 C 1304.6856750257643,224.1394709721745 1372.3428375128822,187.06973548608727 1440,150 L 1440,600 L 0,600 Z");
+              }
+            }</style><defs><linearGradient id="gradient" x1="0%" y1="50%" x2="100%" y2="50%"><stop offset="5%" stop-color="#ff6900"></stop><stop offset="95%" stop-color="#fcb900"></stop></linearGradient></defs><path d="M 0,600 L 0,150 C 90.58673995190657,165.60632085194092 181.17347990381313,181.21264170388184 235,167 C 288.82652009618687,152.78735829611816 305.8928203366541,108.75575403641358 375,127 C 444.1071796633459,145.24424596358642 565.2552387495706,225.76434215046376 652,224 C 738.7447612504294,222.23565784953624 791.0862246650636,138.18687736173138 856,98 C 920.9137753349364,57.81312263826863 998.399862590175,61.48814840261079 1064,96 C 1129.600137409825,130.5118515973892 1183.3143249742357,195.8605290278255 1244,210 C 1304.6856750257643,224.1394709721745 1372.3428375128822,187.06973548608727 1440,150 L 1440,600 L 0,600 Z" stroke="none" stroke-width="0" fill="url(#gradient)" fill-opacity="0.53" class="transition-all duration-300 ease-in-out delay-150 path-0"></path><style>
+            .path-1{
+              animation:pathAnim-1 4s;
+              animation-timing-function: linear;
+              animation-iteration-count: infinite;
+            }
+            @keyframes pathAnim-1{
+              0%{
+                d: path("M 0,600 L 0,350 C 55.87701820680178,304.35176915149435 111.75403641360356,258.7035383029887 190,275 C 268.24596358639644,291.2964616970113 368.86087255238743,369.53761593953965 437,369 C 505.13912744761257,368.46238406046035 540.8024733768465,289.1459979388526 609,290 C 677.1975266231535,290.8540020611474 777.9292339402267,371.87839230504983 846,403 C 914.0707660597733,434.12160769495017 949.4805908622468,415.3404328409481 1004,385 C 1058.5194091377532,354.6595671590519 1132.1484026107867,312.7598763311577 1208,305 C 1283.8515973892133,297.2401236688423 1361.9257986946068,323.6200618344211 1440,350 L 1440,600 L 0,600 Z");
+              }
+              25%{
+                d: path("M 0,600 L 0,350 C 86.65338371693579,347.63174166952933 173.30676743387158,345.2634833390587 232,335 C 290.6932325661284,324.7365166609413 321.4263139814496,306.57780831329444 385,332 C 448.5736860185504,357.42219168670556 544.9879766403299,426.42528340776363 631,416 C 717.0120233596701,405.57471659223637 792.6217794572311,315.721058055651 847,277 C 901.3782205427689,238.27894194434901 934.5249055307454,250.69048436963243 1006,292 C 1077.4750944692546,333.30951563036757 1187.278598419787,403.51700446581924 1266,418 C 1344.721401580213,432.48299553418076 1392.3607007901064,391.2414977670904 1440,350 L 1440,600 L 0,600 Z");
+              }
+              50%{
+                d: path("M 0,600 L 0,350 C 70.1621435932669,370.80796976983856 140.3242871865338,391.61593953967713 211,384 C 281.6757128134662,376.38406046032287 352.8649948471316,340.34421161113016 418,322 C 483.1350051528684,303.65578838886984 542.2157334249399,303.00721401580216 603,303 C 663.7842665750601,302.99278598419784 726.2720714531089,303.6269323256613 800,323 C 873.7279285468911,342.3730676743387 958.6959807626245,380.4850566815528 1034,382 C 1109.3040192373755,383.5149433184472 1174.9440054963932,348.4328409481278 1241,337 C 1307.0559945036068,325.5671590518722 1373.5279972518033,337.7835795259361 1440,350 L 1440,600 L 0,600 Z");
+              }
+              75%{
+                d: path("M 0,600 L 0,350 C 57.778083132944005,315.1940913775335 115.55616626588801,280.388182755067 189,280 C 262.443833734112,279.611817244933 351.553418069392,313.64136035726557 419,344 C 486.446581930608,374.35863964273443 532.230161456544,401.0463758158708 591,399 C 649.769838543456,396.9536241841292 721.5259361044316,366.17313637925116 804,373 C 886.4740638955684,379.82686362074884 979.6660941257298,424.26107866712465 1048,407 C 1116.3339058742702,389.73892133287535 1159.8096873926486,310.7825489522501 1221,291 C 1282.1903126073514,271.2174510477499 1361.0951563036756,310.6087255238749 1440,350 L 1440,600 L 0,600 Z");
+              }
+              100%{
+                d: path("M 0,600 L 0,350 C 55.87701820680178,304.35176915149435 111.75403641360356,258.7035383029887 190,275 C 268.24596358639644,291.2964616970113 368.86087255238743,369.53761593953965 437,369 C 505.13912744761257,368.46238406046035 540.8024733768465,289.1459979388526 609,290 C 677.1975266231535,290.8540020611474 777.9292339402267,371.87839230504983 846,403 C 914.0707660597733,434.12160769495017 949.4805908622468,415.3404328409481 1004,385 C 1058.5194091377532,354.6595671590519 1132.1484026107867,312.7598763311577 1208,305 C 1283.8515973892133,297.2401236688423 1361.9257986946068,323.6200618344211 1440,350 L 1440,600 L 0,600 Z");
+              }
+            }</style><defs><linearGradient id="gradient" x1="0%" y1="50%" x2="100%" y2="50%"><stop offset="5%" stop-color="#ff6900"></stop><stop offset="95%" stop-color="#fcb900"></stop></linearGradient></defs><path d="M 0,600 L 0,350 C 55.87701820680178,304.35176915149435 111.75403641360356,258.7035383029887 190,275 C 268.24596358639644,291.2964616970113 368.86087255238743,369.53761593953965 437,369 C 505.13912744761257,368.46238406046035 540.8024733768465,289.1459979388526 609,290 C 677.1975266231535,290.8540020611474 777.9292339402267,371.87839230504983 846,403 C 914.0707660597733,434.12160769495017 949.4805908622468,415.3404328409481 1004,385 C 1058.5194091377532,354.6595671590519 1132.1484026107867,312.7598763311577 1208,305 C 1283.8515973892133,297.2401236688423 1361.9257986946068,323.6200618344211 1440,350 L 1440,600 L 0,600 Z" stroke="none" stroke-width="0" fill="url(#gradient)" fill-opacity="1" class="transition-all duration-300 ease-in-out delay-150 path-1"></path></svg>
+    </footer>
+
+    
+    <script src="https://unpkg.com/scrollreveal"></script>
+    <script>
+      const menuBtn = document.getElementById("menu-btn");
+const navLinks = document.getElementById("nav-links");
+const menuBtnIcon = menuBtn.querySelector("i");
+
+menuBtn.addEventListener("click", (e) => {
+  navLinks.classList.toggle("open");
+
+  const isOpen = navLinks.classList.contains("open");
+  menuBtnIcon.setAttribute("class", isOpen ? "ri-close-line" : "ri-menu-line");
+});
+
+navLinks.addEventListener("click", (e) => {
+  navLinks.classList.remove("open");
+  menuBtnIcon.setAttribute("class", "ri-menu-line");
+});
+
+const scrollRevealOption = {
+  distance: "50px",
+  origin: "bottom",
+  duration: 1000,
+};
+
+ScrollReveal().reveal(".header__image img", {
+  ...scrollRevealOption,
+  origin: "right",
+});
+ScrollReveal().reveal(".header__content h2", {
+  ...scrollRevealOption,
+  delay: 500,
+});
+ScrollReveal().reveal(".header__content h1", {
+  ...scrollRevealOption,
+  delay: 1000,
+});
+ScrollReveal().reveal(".header__content p", {
+  ...scrollRevealOption,
+  delay: 1500,
+});
+ScrollReveal().reveal(".header__btns", {
+  ...scrollRevealOption,
+  delay: 2000,
+});
+
+document.addEventListener('DOMContentLoaded', () => {
+  const helpButton = document.getElementById('helpButton');
+  const chatbotContainer = document.getElementById('chatbotContainer');
+  const closeButton = document.getElementById('closeButton');
+  const sendButton = document.getElementById('sendButton');
+  const userInput = document.getElementById('userInput');
+  const chatbotBody = document.getElementById('chatbotBody');
+
+  helpButton.addEventListener('click', () => {
+      chatbotContainer.style.display = 'flex';
+  });
+
+  closeButton.addEventListener('click', () => {
+      chatbotContainer.style.display = 'none';
+  });
+
+  sendButton.addEventListener('click', () => {
+      sendMessage();
+  });
+
+  userInput.addEventListener('keydown', (event) => {
+      if (event.key === 'Enter') {
+          sendMessage();
+      }
+  });
+
+  function sendMessage() {
+      const userText = userInput.value.trim();
+      if (userText === '') return;
+
+      const userMessage = document.createElement('div');
+      userMessage.className = 'message user';
+      userMessage.textContent = userText;
+      chatbotBody.appendChild(userMessage);
+
+      userInput.value = '';
+      chatbotBody.scrollTop
+      chatbotBody.scrollTop = chatbotBody.scrollHeight;
+
+      setTimeout(() => {
+  const botMessage = document.createElement('div');
+  botMessage.className = 'message bot';
+  if(userText=="Hi" || userText=="Hello" || userText=="hi" || userText=="hello" || userText=="Hello"){
+    botMessage.textContent = "hi, I'm here to assist you with anything you need.";
+  }
+  else if(userText=="How are you"|| userText=="how are you" || userText=="how r you"|| userText=="how r u") {
+    botMessage.textContent = "I'm good dear what about u ";
+  }
+  else if(userText=="fine"|| userText=="Fine"){
+    botMessage.textContent = "I'm here to assist you with anything you need.";
+  }
+  else if(userText=="What is dropshipping" || userText=="what is dropshipping" || userText=="what is Dropshipping" || userText=="What is Dropshipping" || userText=="dropshipping" || userText=="Dropshipping"){
+    botMessage.textContent = "Dropshipping is a retail fulfillment method where a store doesn't keep the products it sells in stock. Instead, when a store sells a product, it purchases the item from a third-party supplier, who then ships the product directly to the customer. As a result, the seller doesn't have to handle the product directly. This business model allows retailers to offer a wide range of products without having to invest in inventory, but it also means they have less control over product quality and shipping times.";
+  }
+  else if(userText=="What is Affiliate Marketing" || userText=="what is Affiliate Marketing" || userText=="What is AffiliateMarketing" || userText=="what is AffiliateMarketing" || userText=="Affiliate Marketing" ||  userText=="affiliate marketing"){
+    botMessage.textContent = "Affiliate marketing is a performance-based marketing strategy where individuals or businesses (affiliates) promote a company's products or services and earn a commission for each sale, lead, or action generated through their marketing efforts. Affiliates use various methods, such as blogging, social media, email marketing, and paid advertising, to drive traffic to the company's website or product pages.";
+  }
+  else if(userText=="Difference between Affliate Marketing and Dropshipping" || userText=="difference between Affliate Marketing and Dropshipping" || userText=="Difference between AffliateMarketing and Dropshipping" || userText=="Difference between Affliate Marketing and dropshipping" || userText=="Difference between affliate marketing and dropshipping"){
+    botMessage.textContent = "Affiliate Marketing: Affiliates promote a company's products or services and earn a commission for each sale or action generated through their referral links. They do not handle inventory, shipping, or customer service.  Dropshipping: Retailers sell products directly to customers without holding inventory. When a product is sold, the retailer purchases it from a third-party supplier, who ships it directly to the customer. The retailer is responsible for marketing, sales, and customer service.";
+  }
+  else{
+    botMessage.textContent = "Your request is taken, we will get you soon with the response";
+  }
+  
+  chatbotBody.appendChild(botMessage);
+  chatbotBody.scrollTop = chatbotBody.scrollHeight;
+}, 1000); // Simulate bot response delay
+  }
+});
+
+    // script.js
+    document.addEventListener('DOMContentLoaded', function() {
+      const profilePic = document.getElementById('profile-pic');
+      const profileMenu = document.getElementById('profile-menu');
+      const logoutButton = document.getElementById('logout');
+  
+      profilePic.addEventListener('click', function() {
+          profileMenu.classList.toggle('hidden');
+      });
+  
+      logoutButton.addEventListener('click', function() {
+          profileMenu.classList.add('hidden');
+          alert('Logged out successfully!');
+      });
+  
+      // Close the profile menu if clicked outside
+      document.addEventListener('click', function(event) {
+          if (!profilePic.contains(event.target) && !profileMenu.contains(event.target)) {
+              profileMenu.classList.add('hidden');
+          }
+      });
+  });
+  
+  document.addEventListener('DOMContentLoaded', (event) => {
+    const notification = document.getElementById('notification');
+
+    function showNotification(message) {
+        notification.textContent = message;
+        notification.style.display = 'block';
+        setTimeout(() => {
+            notification.style.display = 'none';
+        }, 2000);
+    }
+
+    // Disable right-click
+    document.addEventListener('contextmenu', (event) => {
+        event.preventDefault();
+        showNotification('Right-click is disabled!');
+    });
+
+    // Disable copy
+    document.addEventListener('copy', (event) => {
+        event.preventDefault();
+        showNotification('Copying is disabled!');
+    });
+
+    // Disable paste
+    document.addEventListener('paste', (event) => {
+        event.preventDefault();
+        showNotification('Pasting is disabled!');
+    });
+
+    // Disable cut
+    document.addEventListener('cut', (event) => {
+        event.preventDefault();
+        showNotification('Cutting is disabled!');
+    });
+});
+
+
+
+
+const wrapper = document.querySelector(".wrapper"),
+toast = wrapper.querySelector(".toast"),
+title = toast.querySelector("span"),
+subTitle = toast.querySelector("p"),
+wifiIcon = toast.querySelector(".icon"),
+closeIcon = toast.querySelector(".close-icon");
+
+window.onload = ()=>{
+    function ajax(){
+        let xhr = new XMLHttpRequest(); 
+        xhr.open("GET", "https://jsonplaceholder.typicode.com/posts", true); 
+        xhr.onload = ()=>{ 
+            
+            if(xhr.status == 200 && xhr.status < 300){
+                toast.classList.remove("offline");
+                title.innerText = "You're online now";
+                subTitle.innerText = "Hurray! Internet is connected.";
+                wifiIcon.innerHTML = '<i class="uil uil-wifi"></i>';
+                closeIcon.onclick = ()=>{ 
+                    wrapper.classList.add("hide");
+                }
+                setTimeout(()=>{ 
+                    wrapper.classList.add("hide");
+                }, 5000);
+            }else{
+                offline(); 
+            }
+        }
+        xhr.onerror = ()=>{
+            offline(); 
+        }
+        xhr.send(); 
+    }
+
+    function offline(){ 
+        wrapper.classList.remove("hide");
+        toast.classList.add("offline");
+        title.innerText = "You're offline now";
+        subTitle.innerText = "Opps! Internet is disconnected.";
+        wifiIcon.innerHTML = '<i class="uil uil-wifi-slash"></i>';
+    }
+
+    setInterval(()=>{ 
+        ajax();
+    }, 100);
+}
+
+
+
+var loader = document.querySelector(".loader")
+
+window.addEventListener("load", vanish);
+
+function vanish() {
+  loader.classList.add("disppear");
+}
+    </script>
+  </body>
+</html>
